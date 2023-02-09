@@ -15,6 +15,7 @@
           </grid>
         </constraints>
         <properties>
+          <editable value="false"/>
           <text value=""/>
         </properties>
       </component>
@@ -25,7 +26,9 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Write your text here"/>
+          <enabled value="true"/>
+          <text value=""/>
+          <toolTipText value="Write your text here"/>
         </properties>
       </component>
       <component id="cf00a" class="javax.swing.JButton" binding="sendButton" default-binding="true">

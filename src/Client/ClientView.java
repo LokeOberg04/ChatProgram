@@ -1,6 +1,7 @@
 package Client;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
 
 public class ClientView {
     private JTextPane textPane1;
@@ -14,4 +15,19 @@ public class ClientView {
         return panel1;
     }
 
+    public String getMessage() {
+        return writeYourTextHereTextField.getText();
+    }
+
+    public void setmessage(String c) {
+        textPane1.setText(c);
+    }
+
+    public void exportListener(ActionListener exportListener) {
+        sendButton.addActionListener(exportListener);
+    }
+
+    public void sendListener(ActionListener sendListener) {
+        sendButton.addActionListener(sendListener);
+    }
 }

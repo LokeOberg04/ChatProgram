@@ -1,6 +1,7 @@
 package Client;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ClientView {
@@ -9,6 +10,9 @@ public class ClientView {
     private JTextField writeYourTextHereTextField;
     private JButton sendButton;
     private JList list1;
+
+    public ClientView() {
+    }
 
 
     public JPanel getPanel() {
@@ -19,7 +23,7 @@ public class ClientView {
         return writeYourTextHereTextField.getText();
     }
 
-    public void setmessage(String c) {
+    public void settextPane1(String c) {
         textPane1.setText(c);
     }
 
@@ -29,5 +33,9 @@ public class ClientView {
 
     public void sendListener(ActionListener sendListener) {
         sendButton.addActionListener(sendListener);
+    }
+
+    public AbstractButton getsendButton() {
+        return sendButton;
     }
 }

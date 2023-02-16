@@ -10,36 +10,25 @@ public class ClientController extends JFrame {
 
     ClientModel model;
     ClientView GUI;
-
-    private class exportListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            // do stuff
-        }
-    }
-
-    private class messageListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            model.setmsg(GUI.getMessage());
-            GUI.setmessage(model.getmessage());
-        }
-    }
-
-    private class sendListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            GUI.setmessage(model.getmessage());
-            model.addmessage(GUI.getMessage());
-        }
-    }
-
     public ClientController(ClientModel m, ClientView v) {
 
         this.model = m;
         this.GUI = v;
+
+        v.getsendButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.setmsg(GUI.getMessage());
+                model.addmessagetochat(model.getmessage());
+                GUI.settextPane1(model.getchat());
+            }
+        });
+
         this.setContentPane(GUI.getPanel());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
         this.setVisible(true);
-        v.sendListener(new sendListener());
+        v.getsendButton();
 }
     public static void main(String[] args) {
         ClientModel m = new ClientModel(JOptionPane.showInputDialog("ip?"), Integer.parseInt(JOptionPane.showInputDialog("port?")));

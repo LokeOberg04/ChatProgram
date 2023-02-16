@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class ClientModel {
     String msg = "";
-    String chat = "\n";
+    String chat = "";
     Socket socket;
 
     PrintWriter out;
@@ -32,9 +32,11 @@ public class ClientModel {
     public void setmsg(String msg) {
         this.msg = msg;
     }
-    public void addmessage(String msg) {
-        chat += msg;
+    public void addmessagetochat(String msg) {
+        chat += msg + "\n";
     }
+
+    public String getchat() {return chat;}
 
     public void getStreams() {
         try {

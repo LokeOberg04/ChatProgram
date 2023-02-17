@@ -15,13 +15,16 @@ public class ServerController extends JFrame {
 
         this.model = m;
         this.GUI = v;
+        this.setTitle("Server");
         m.minChef = this;
         v.getsendButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.setmsg(GUI.getMessage());
-                model.addmessagetochat(model.getmessage());
+                model.addmessagetochat("You: " + model.getmessage());
                 GUI.settextPane1(model.getchat());
+                model.SendMessage(model.getmessage());
+                GUI.setMessage("");
             }
         });
 

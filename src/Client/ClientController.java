@@ -14,14 +14,15 @@ public class ClientController extends JFrame {
 
         this.model = m;
         this.GUI = v;
-
+        this.setTitle("Client");
         v.getsendButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.setmsg(GUI.getMessage());
-                model.addmessagetochat(model.getmessage());
+                model.addmessagetochat("You: " + model.getmessage());
                 GUI.settextPane1(model.getchat());
                 model.SendMessage(model.getmessage());
+                GUI.setMessage("");
             }
         });
 
@@ -41,11 +42,16 @@ public class ClientController extends JFrame {
             // ClientModel me = new ClientModel("10.80.46.193", 4738); // me
             // Client me = new Client("10.80.46.47", 1234); // tim
             m.getStreams();
-            ClientListenerThread l = new ClientListenerThread(m.in, System.out);
+            ClientListenerThread l = new ClientListenerThread(m.in, thisIsTheProgram);
             Thread listener = new Thread(l);
             listener.start();
             m.runProtocol();
             listener.stop();
             m.shutDown();
         }
+
+    public void newMessage(String msg) {
+        model.addmessagetochat(msg);
+        GUI.settextPane1(model.getchat());
     }
+}

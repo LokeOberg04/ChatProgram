@@ -21,6 +21,9 @@ public class ServerView {
     public String getMessage() {
         return writeYourTextHereTextField.getText();
     }
+    public void setMessage(String c) {
+        writeYourTextHereTextField.setText(c);
+    }
 
     public void settextPane1(String c) {
         textPane1.setText(c);

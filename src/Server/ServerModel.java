@@ -42,6 +42,9 @@ public class ServerModel {
 
     public String getchat() {return chat;}
 
+    public void SendMessage(String msg) {
+        out.println("Server: " + msg);
+    }
     public void acceptClient() {
         try {
             client = server.accept();

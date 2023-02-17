@@ -48,6 +48,10 @@ public class ClientModel {
         System.out.println("Streams ready...");
     }
 
+    public void SendMessage(String msg) {
+        out.println("Client: " + msg);
+    }
+
     public void runProtocol() {
         Scanner tgb = new Scanner(System.in);
         System.out.println("chatting...");

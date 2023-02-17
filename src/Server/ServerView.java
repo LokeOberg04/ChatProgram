@@ -1,6 +1,7 @@
 package Server;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
 
 public class ServerView {
     private JTextPane textPane1;
@@ -9,8 +10,31 @@ public class ServerView {
     private JButton sendButton;
     private JList list1;
 
+    public ServerView() {
+    }
+
+
     public JPanel getPanel() {
         return panel1;
     }
 
+    public String getMessage() {
+        return writeYourTextHereTextField.getText();
+    }
+
+    public void settextPane1(String c) {
+        textPane1.setText(c);
+    }
+
+    public void exportListener(ActionListener exportListener) {
+        sendButton.addActionListener(exportListener);
+    }
+
+    public void sendListener(ActionListener sendListener) {
+        sendButton.addActionListener(sendListener);
+    }
+
+    public AbstractButton getsendButton() {
+        return sendButton;
+    }
 }

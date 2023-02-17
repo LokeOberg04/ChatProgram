@@ -21,6 +21,7 @@ public class ClientController extends JFrame {
                 model.setmsg(GUI.getMessage());
                 model.addmessagetochat(model.getmessage());
                 GUI.settextPane1(model.getchat());
+                model.SendMessage(model.getmessage());
             }
         });
 
@@ -31,7 +32,7 @@ public class ClientController extends JFrame {
         v.getsendButton();
 }
     public static void main(String[] args) {
-        ClientModel m = new ClientModel(JOptionPane.showInputDialog("ip?"), Integer.parseInt(JOptionPane.showInputDialog("port?")));
+        ClientModel m = new ClientModel("10.80.46.193", 4738);
         ClientView v = new ClientView();
         ClientController thisIsTheProgram = new ClientController(m,v);
         thisIsTheProgram.setVisible(true);

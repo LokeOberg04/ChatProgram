@@ -9,11 +9,15 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class ServerModel {
+
+    String msg = "";
+    String chat = "";
     ServerSocket server;
     Socket client;
 
     PrintWriter out;
     BufferedReader in;
+    ServerController minChef;
 
     public ServerModel(int port) {
         try {
@@ -24,6 +28,19 @@ public class ServerModel {
         }
         System.out.println("Server started...");
     }
+
+
+    public String getmessage() {
+        return msg;
+    }
+    public void setmsg(String msg) {
+        this.msg = msg;
+    }
+    public void addmessagetochat(String msg) {
+        chat += msg + "\n";
+    }
+
+    public String getchat() {return chat;}
 
     public void acceptClient() {
         try {

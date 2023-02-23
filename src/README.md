@@ -9,3 +9,6 @@ Jag har skapat grund strukturen altså MVC i mitt program och har gjort en gui f
 
 #### 2023-02-10
 Jag försöker att koppla ihop mina knappar.
+
+#### 2023-02-23
+Jag vill kunna skicka mitt namn till dom andra så att dom andra kan göra en lista på alla som är connectade

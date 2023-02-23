@@ -55,7 +55,7 @@ public class ClientModel {
     }
 
     public void SendMessage(String msg) {
-        out.println("Client: " + msg);
+        out.println(name + ": " + msg);
     }
 
     public void runProtocol() {

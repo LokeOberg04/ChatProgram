@@ -48,7 +48,7 @@ public class ServerModel {
     public void setname(String name) {this.name = name;}
 
     public void SendMessage(String msg) {
-        out.println("Server: " + msg);
+        out.println(name + ": " + msg);
     }
     public void acceptClient() {
         try {

@@ -10,6 +10,8 @@ import java.util.Scanner;
 public class ClientModel {
     String msg = "";
     String chat = "";
+
+    String name = "";
     Socket socket;
 
     PrintWriter out;
@@ -29,6 +31,10 @@ public class ClientModel {
     public String getmessage() {
         return msg;
     }
+
+    public String getname() {return this.name;}
+
+    public void setname(String name) {this.name = name;}
     public void setmsg(String msg) {
         this.msg = msg;
     }

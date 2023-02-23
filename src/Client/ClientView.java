@@ -9,7 +9,8 @@ public class ClientView {
     private JPanel panel1;
     private JTextField writeYourTextHereTextField;
     private JButton sendButton;
-    private JList list1;
+    private JTextPane list1;
+
 
     public ClientView() {
     }
@@ -24,6 +25,10 @@ public class ClientView {
     }
     public void setMessage(String c) {
         writeYourTextHereTextField.setText(c);
+    }
+
+    public void listaddMessage(String c) {
+        list1.setText(c);
     }
 
     public void settextPane1(String c) {

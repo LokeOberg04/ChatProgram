@@ -19,7 +19,7 @@ public class ClientController extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.setmsg(GUI.getMessage());
-                model.addmessagetochat("You: " + model.getmessage());
+                model.addmessagetochat(model.getname() + ": " + model.getmessage());
                 GUI.settextPane1(model.getchat());
                 model.SendMessage(model.getmessage());
                 GUI.setMessage("");
@@ -37,7 +37,9 @@ public class ClientController extends JFrame {
         ClientView v = new ClientView();
         ClientController thisIsTheProgram = new ClientController(m,v);
         thisIsTheProgram.setVisible(true);
+        m.setname(JOptionPane.showInputDialog("Namn?"));
 
+        v.listaddMessage(m.getname());
             // Client me = new Client("10.80.47.10", 5858); // alexandro
             // ClientModel me = new ClientModel("10.80.46.193", 4738); // me
             // Client me = new Client("10.80.46.47", 1234); // tim
@@ -53,5 +55,8 @@ public class ClientController extends JFrame {
     public void newMessage(String msg) {
         model.addmessagetochat(msg);
         GUI.settextPane1(model.getchat());
+    }
+    public void newName(String name) {
+        GUI.listaddMessage(name);
     }
 }

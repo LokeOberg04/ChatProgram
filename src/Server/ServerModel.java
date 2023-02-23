@@ -12,6 +12,7 @@ public class ServerModel {
 
     String msg = "";
     String chat = "";
+    String name = "";
     ServerSocket server;
     Socket client;
 
@@ -41,6 +42,10 @@ public class ServerModel {
     }
 
     public String getchat() {return chat;}
+
+    public String getname() {return this.name;}
+
+    public void setname(String name) {this.name = name;}
 
     public void SendMessage(String msg) {
         out.println("Server: " + msg);

@@ -32,10 +32,12 @@ public class ServerController extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.setmsg(GUI.getMessage());
-                model.addmessagetochat(model.getname() + ": " + model.getmessage());
-                GUI.settextPane1(model.getchat());
-                model.SendMessage(model.getmessage());
-                GUI.setMessage("");
+                if(model.getmessage().length() > 0) {
+                    model.addmessagetochat(model.getname() + ": " + model.getmessage());
+                    GUI.settextPane1(model.getchat());
+                    model.SendMessage(model.getmessage());
+                    GUI.setMessage("");
+                }
             }
         });
 
@@ -74,5 +76,9 @@ public class ServerController extends JFrame {
     public void newMessage(String msg) {
     model.addmessagetochat(msg);
     GUI.settextPane1(model.getchat());
+    }
+    public void newName(String name) {
+        model.addtonames(name);
+        GUI.listaddMessage(model.getnames());
     }
 }

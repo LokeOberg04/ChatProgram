@@ -15,8 +15,10 @@
           </grid>
         </constraints>
         <properties>
+          <autoscrolls value="true"/>
           <editable value="false"/>
           <text value=""/>
+          <verifyInputWhenFocusTarget value="true"/>
         </properties>
       </component>
       <component id="c2fee" class="javax.swing.JTextField" binding="writeYourTextHereTextField" default-binding="true">

@@ -12,6 +12,7 @@ public class ClientModel {
     String chat = "";
 
     String name = "";
+    String names = "";
     Socket socket;
 
     PrintWriter out;
@@ -34,7 +35,17 @@ public class ClientModel {
 
     public String getname() {return this.name;}
 
-    public void setname(String name) {this.name = name;}
+    public String getnames() {return this.names;}
+
+    public void setname(String name) {
+        this.name = name;
+        this.names += name;
+    }
+
+    public void addtonames(String name) {
+        this.names += "\n" + name;
+    }
+
     public void setmsg(String msg) {
         this.msg = msg;
     }

@@ -5,6 +5,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 
 // import static com.sun.xml.internal.org.jvnet.mimepull.FactoryFinder.cl;
@@ -41,6 +43,32 @@ public class ServerController extends JFrame {
             }
         });
 
+        v.getEnter().addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode()==KeyEvent.VK_ENTER) {
+                    model.setmsg(GUI.getMessage());
+                    if (model.getmessage().length() > 0) {
+                        model.addmessagetochat(model.getname() + ": " + model.getmessage());
+                        GUI.settextPane1(model.getchat());
+                        model.SendMessage(model.getmessage());
+                        GUI.setMessage("");
+                    }
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode()==KeyEvent.VK_ENTER){
+                    GUI.setMessage("");
+                }
+            }
+        });
 
         this.setContentPane(GUI.getPanel());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

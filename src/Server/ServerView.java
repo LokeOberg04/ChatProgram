@@ -1,6 +1,7 @@
 package Server;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class ServerView {
@@ -43,5 +44,9 @@ public class ServerView {
 
     public void listaddMessage(String c) {
         list1.setText(c);
+    }
+
+    public JTextField getEnter() {
+        return writeYourTextHereTextField;
     }
 }

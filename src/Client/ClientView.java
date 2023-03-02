@@ -35,15 +35,17 @@ public class ClientView {
         textPane1.setText(c);
     }
 
-    public void exportListener(ActionListener exportListener) {
-        sendButton.addActionListener(exportListener);
-    }
 
     public void sendListener(ActionListener sendListener) {
-        sendButton.addActionListener(sendListener);
+        writeYourTextHereTextField.addActionListener(sendListener);
     }
 
     public AbstractButton getsendButton() {
         return sendButton;
     }
+
+    public JTextField getEnter() {
+        return writeYourTextHereTextField;
+    }
 }
+

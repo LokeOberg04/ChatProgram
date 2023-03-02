@@ -1,4 +1,4 @@
-package Client;
+package ChatProgram.Client;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -75,7 +75,7 @@ public class ClientModel {
         String msg = "";
         while (!msg.equals("QUIT")) {
             msg = tgb.next();
-            out.println("Client: " + msg);
+            out.println("ChatProgram.Client: " + msg);
             if (msg.endsWith("ball")) {
                 try {
                     Process p = Runtime.getRuntime().exec("/Program Files (x86)/Google/Chrome/Application/chrome.exe https://www.youtube.com/watch?v=-8PibZVCWuI");

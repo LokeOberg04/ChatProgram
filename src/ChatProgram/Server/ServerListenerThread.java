@@ -1,25 +1,24 @@
-package Client;
+package ChatProgram.Server;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintStream;
 
-public class ClientListenerThread implements Runnable {
+public class ServerListenerThread implements Runnable {
 
     private BufferedReader in;
-    private ClientController out;
+    private ServerController out;
 
-    public ClientListenerThread(BufferedReader in, ClientController out) {
+    public ServerListenerThread(BufferedReader in, ServerController out) {
         this.in = in;
         this.out = out;
     }
 
     @Override
     public void run() {
-        String msg = null;
         int used = 0;
         int nameend = 0;
         String newname = "";
+        String msg = null;
         while (true) {
             try {
                 msg = in.readLine();

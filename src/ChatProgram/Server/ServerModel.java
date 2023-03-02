@@ -1,4 +1,4 @@
-package Server;
+package ChatProgram.Server;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class ServerModel {
             System.err.println("Failed to open serversocket.");
             e.printStackTrace();
         }
-        System.out.println("Server started...");
+        System.out.println("ChatProgram.Server started...");
     }
 
 

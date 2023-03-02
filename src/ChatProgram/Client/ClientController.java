@@ -1,40 +1,28 @@
-package Server;
+package ChatProgram.Client;
 
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.IOException;
-
-// import static com.sun.xml.internal.org.jvnet.mimepull.FactoryFinder.cl;
 
 
-public class ServerController extends JFrame {
+public class ClientController extends JFrame {
 
-    ServerModel model;
-    ServerView GUI;
+    ClientModel model;
+    ClientView GUI;
 
-    public ServerController(ServerModel m, ServerView v) {
-        ClassLoader cl = this.getClass().getClassLoader();
-        ImageIcon icon = null;
-        // try {
-        //     icon = new ImageIcon(ImageIO.read(cl.getResource("icon.png")));
-        // } catch (IOException e) {
-        //     e.printStackTrace();
-        // }
+    public ClientController(ClientModel m, ClientView v) {
+
         this.model = m;
         this.GUI = v;
-        this.setTitle("Server");
-        //this.setIconImage(icon.getImage());
-        m.minChef = this;
+        this.setTitle("Client");
         v.getsendButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.setmsg(GUI.getMessage());
-                if(model.getmessage().length() > 0) {
+                if (model.getmessage().length() > 0) {
                     model.addmessagetochat(model.getname() + ": " + model.getmessage());
                     GUI.settextPane1(model.getchat());
                     model.SendMessage(model.getmessage());
@@ -42,6 +30,7 @@ public class ServerController extends JFrame {
                 }
             }
         });
+
 
         v.getEnter().addKeyListener(new KeyListener() {
             @Override
@@ -74,37 +63,33 @@ public class ServerController extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
         this.setVisible(true);
+        v.getsendButton();
+    }
 
-
+    public static void main(String[] args) {
+        ClientModel m = new ClientModel("10.80.46.193", 4738); // me
+        // ClientModel m = new ClientModel("10.80.47.10", 5858); // Alexandro
+        // ClientModel m = new ClientModel("10.80.46.47", 1234); // Tim
+        ClientView v = new ClientView();
+        ClientController thisIsTheProgram = new ClientController(m, v);
+        thisIsTheProgram.setVisible(true);
         m.setname(JOptionPane.showInputDialog("Namn?"));
 
         v.listaddMessage(m.getname());
-
-        v.getsendButton();
-    }
-    public static void main(String[] args) {
-
-
-        ServerModel m = new ServerModel(4738);
-        ServerView v = new ServerView();
-        ServerController thisIsTheProgram = new ServerController(m,v);
-        thisIsTheProgram.setVisible(true);
-
-        //ServerModel s = new ServerModel(4738);
-        m.acceptClient();
         m.getStreams();
-        ServerListenerThread l = new ServerListenerThread(m.in, thisIsTheProgram);
+        ClientListenerThread l = new ClientListenerThread(m.in, thisIsTheProgram);
         Thread listener = new Thread(l);
         listener.start();
         m.runProtocol();
         listener.stop();
-        m.shutdown();
+        m.shutDown();
     }
 
     public void newMessage(String msg) {
-    model.addmessagetochat(msg);
-    GUI.settextPane1(model.getchat());
+        model.addmessagetochat(msg);
+        GUI.settextPane1(model.getchat());
     }
+
     public void newName(String name) {
         model.addtonames(name);
         GUI.listaddMessage(model.getnames());

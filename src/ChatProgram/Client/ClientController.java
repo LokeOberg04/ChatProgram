@@ -2,6 +2,7 @@ package ChatProgram.Client;
 
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -58,6 +59,10 @@ public class ClientController extends JFrame {
                 }
             }
         });
+
+        Image icon = Toolkit.getDefaultToolkit().getImage("C:\\Users\\loke.oberg\\IdeaProjects\\ChatProgram\\src\\resources\\B).png");
+        this.setIconImage(icon);
+
 
         this.setContentPane(GUI.getPanel());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

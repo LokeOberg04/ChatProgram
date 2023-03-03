@@ -2,6 +2,7 @@ package ChatProgram.Server;
 
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -16,8 +17,8 @@ public class ServerController extends JFrame {
     ServerView GUI;
 
     public ServerController(ServerModel m, ServerView v) {
-        ClassLoader cl = this.getClass().getClassLoader();
-        ImageIcon icon = null;
+        // ClassLoader cl = this.getClass().getClassLoader();
+        // ImageIcon icon = null;
         // try {
         //     icon = new ImageIcon(ImageIO.read(cl.getResource("icon.png")));
         // } catch (IOException e) {
@@ -67,6 +68,9 @@ public class ServerController extends JFrame {
                 }
             }
         });
+
+        Image icon = Toolkit.getDefaultToolkit().getImage("C:\\Users\\loke.oberg\\IdeaProjects\\ChatProgram\\src\\resources\\B).png");
+        this.setIconImage(icon);
 
         this.setContentPane(GUI.getPanel());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

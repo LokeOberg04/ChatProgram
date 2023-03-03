@@ -35,10 +35,6 @@ public class ClientView {
     }
 
 
-    public void sendListener(ActionListener sendListener) {
-        writeYourTextHereTextField.addActionListener(sendListener);
-    }
-
     public AbstractButton getsendButton() {
         return sendButton;
     }
